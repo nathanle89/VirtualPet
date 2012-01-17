@@ -5,7 +5,7 @@ import com.Graphic.Pixmap;
 
 public class VirtualPetStartScreen extends Screen{
 	Pixmap awesomePic;
-	int x;
+	double x;
 	
 	public VirtualPetStartScreen(Game game) {
 		super(game);
@@ -14,7 +14,7 @@ public class VirtualPetStartScreen extends Screen{
 	}
 	@Override
 	public void update(float deltaTime) {
-		x += 1;
+		x += 50 * deltaTime;
 		if (x > 100)
 			x = 0;
 	}
@@ -22,7 +22,7 @@ public class VirtualPetStartScreen extends Screen{
 	@Override
 	public void present(float deltaTime) {
 		game.getGraphics().clear(0);
-		game.getGraphics().drawPixmap(awesomePic, x, 0, 0, 0,
+		game.getGraphics().drawPixmap(awesomePic, (int)x, 0, 0, 0,
 				awesomePic.getWidth(), awesomePic.getHeight());
 	}
 	
